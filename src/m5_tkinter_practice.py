@@ -3,7 +3,7 @@ This project lets you try out Tkinter/Ttk and practice it!
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
          their colleagues and Patrick Addis.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import tkinter
 from tkinter import ttk
@@ -50,7 +50,7 @@ def main():
     hello_goodbye_button['command'] = lambda: check_for_ok(my_entry_box)
     hello_goodbye_button.grid()
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -72,9 +72,15 @@ def main():
     #      s = entry_box.get()
     #      n = int(s)
     ####################################################################
+    second_entry_box = ttk.Entry(frame1)
+    second_entry_box.grid()
+
+    string_button = ttk.Button(frame1, text='String * N')
+    string_button['command'] = lambda: print_string(my_entry_box, second_entry_box)
+    string_button.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # ------------------------------------------------------------------
     root.mainloop()
 
@@ -90,7 +96,16 @@ def check_for_ok(entry_box):
     else:
         print('Goodbye')
 
+
+def print_string(my_entry_box, second_entry_box):
+    contents = my_entry_box.get()
+    n = int(second_entry_box.get())
+    for k in range(n):
+        print(contents)
+
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
 main()
